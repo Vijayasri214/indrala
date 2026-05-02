@@ -1374,3 +1374,875 @@ aws ec2 describe-instances
 ❌ Unauthorized
 
 ----------
+
+
+
+//elasticbeanstalk
+EC2 instance profile → ✔️ **LabInstanceProfile**
+
+i cant seem to find this, i only clicked on labrole
+take a look
+Resource
+Value
+Editable after creation
+Basic details
+Application name
+MyApp1
+No
+Environment name
+MyApp1-env
+No
+Domain name
+[default domain name]
+Yes
+Environment description
+-
+Yes
+Platform details
+Platform
+Java
+Yes
+Platform branch
+Corretto 25 running on 64bit Amazon Linux 2023
+Yes
+Platform version
+4.10.0
+Yes
+Application code
+Deployment method
+Sample application
+Yes
+Additional environment details
+Service role
+arn:aws:iam::981892248556:role/LabRole 
+Yes
+Environment properties
+View properties
+Yes
+Tags
+View tags
+Yes
+Infrastructure
+Resource
+Value
+Editable after creation
+Environment tier
+Tier
+Web server environment
+No
+Compute
+Architecture
+x86_64
+Yes
+Instance types
+t3.micro, t3.small
+Yes
+Root volume (boot device)
+Root volume type
+[Platform defaults]
+Yes
+Size
+-
+Yes
+IOPS
+-
+Yes
+Throughput
+-
+Yes
+Auto scaling group
+Environment type
+Single instance
+No
+Autoscaling configuration
+Fleet composition
+On-Demand instance
+Yes
+Additional infrastructure options
+EC2 instance profile
+LabInstanceProfile 
+Yes
+EC2 key pair
+-
+Yes
+IMDSv1
+Disabled
+Yes
+Networking
+Resource
+Value
+Editable after creation
+Instance settings
+VPC
+vpc-0edaa4420ca8b301e
+No
+Instance subnets
+subnet-005062254ea3945cd, subnet-02e2da3945fac49a6, subnet-0d1871caa06e84dee, subnet-0a2c27270c1078ee9, subnet-08d698171d9ec0278
+No
+Security groups
+-
+Yes
+Additional services
+Resource
+Value
+Editable after creation
+Monitoring configuration
+Health reporting
+Enhanced
+Yes
+Monitoring interval
+5 minutes
+Yes
+Health event streaming
+Turned off
+Yes
+CloudWatch metrics
+View CloudWatch metrics
+Yes
+Managed platform updates
+Managed updates
+Turned on
+Yes
+Update level
+Minor and patch
+Yes
+Weekly update window
+Thursday 22:55 UTC to Friday 00:55 UTC
+Yes
+Instance replacement
+Turned off
+Yes
+Platform software configuration
+Instance log streaming to CloudWatch
+Turned off
+Yes
+S3 log storage
+Turned off
+Yes
+Amazon X-Ray
+Turned off
+Yes
+Proxy server
+nginx
+Yes
+environment successfully launched it displayed
+
+**Domain / URL”** It will look like: http://myapp1-env.eba-xxxxxx.us-east-1.elasticbeanstalk.com 👉 Click it * * * 🎯 What you should see ----------------------
+
+Domain
+MyApp1-env.eba-zpys3fpc.us-east-1.elasticbeanstalk.com
+is this one?
+
+
+Default Elastic Beanstalk pag
+
+i got this
+
+Do you already have a `.war` file?
+
+which war file
+anything specific?
+i have done maven projects previously
+i dont know where my maven project is in my file explorer, so i opnened my git, and in that maven java project
+i have .jar file in target
+
+pom.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.vijju</groupId>
+  <artifactId>my-maven-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>my-maven-project</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.11.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Optionally: parameterized tests support -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.4.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.12.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.6.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
+what about this, pom.xml which is from my maven web project
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.vijju</groupId>
+  <artifactId>my-web-app</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>my-web-app Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+	<groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>my-web-app</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
+MavenWebProject/src/main
+/webapp/
+sushmitha579
+sushmitha579
+Initial commit for Maven Web project
+1109ab9
+ · 
+7 months ago
+Name	Last commit message	Last commit date
+..
+WEB-INF
+Initial commit for Maven Web project
+7 months ago
+index.jsp
+
+NOW: Generate `.war` (important step) ===================================== 🔹 Step 1: Open terminal in your project folder -----------------------------------------------
+
+wwait
+i said, i dont know the location of this maven web project in my file explorer, i have checked all of this in git
+C:\Users\vijay>cd documents
+
+C:\Users\vijay\Documents>git clone https://github.com/Vijayasri214/MavenWebProject.git
+Cloning into 'MavenWebProject'...
+remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 32 (delta 1), reused 32 (delta 1), pack-reused 0 (from 0)
+Receiving objects: 100% (32/32), 4.51 KiB | 384.00 KiB/s, done.
+Resolving deltas: 100% (1/1), done.
+
+C:\Users\vijay\Documents>cd MavenWebProject
+
+C:\Users\vijay\Documents\MavenWebProject>
+
+After it finishes ================= Go to this folder: C:\\Users\\vijay\\
+
+where
+
+Find this file: ✔️ `my-web-app.war`
+
+done
+so i clicked on upload and deploy and in that clicked on choose file and clicked on my-web-app.war
+then do i click on deploy?
+arch 31, 2026 11:51:30 (UTC+5:30)
+WARN
+Environment health has transitioned from Info to Degraded. Command failed on all instances. Incorrect application version found on all instances. Expected version "Sample" (deployment 1). Application update failed 24 seconds ago and took 45 seconds.
+March 31, 2026 11:50:34 (UTC+5:30)
+INFO
+The environment was reverted to the previous configuration setting.
+March 31, 2026 11:50:30 (UTC+5:30)
+INFO
+Environment health has transitioned from Ok to Info. Application update in progress (running for 10 seconds).
+March 31, 2026 11:50:17 (UTC+5:30)
+ERROR
+During an aborted deployment, some instances may have deployed the new application version. To ensure all instances are running the same version, re-deploy the appropriate application version.
+March 31, 2026 11:50:17 (UTC+5:30)
+ERROR
+Failed to deploy application.
+March 31, 2026 11:50:17 (UTC+5:30)
+ERROR
+Unsuccessful command execution on instance id(s) 'i-0048957abadfcaf0a'. Aborting the operation.
+March 31, 2026 11:50:17 (UTC+5:30)
+INFO
+Command execution completed on all instances. Summary: [Successful: 0, Failed: 1].
+March 31, 2026 11:50:16 (UTC+5:30)
+ERROR
+[Instance: i-0048957abadfcaf0a] Command failed on instance. Return code: 1 Output: Engine execution has encountered an error..
+March 31, 2026 11:50:14 (UTC+5:30)
+ERROR
+Instance deployment failed. For details, see 'eb-engine.log'.
+March 31, 2026 11:50:11 (UTC+5:30)
+INFO
+Deploying new version to instance(s).
+March 31, 2026 11:49:52 (UTC+5:30)
+INFO
+Updating environment MyApp1-env's configuration settings.
+March 31, 2026 11:49:44 (UTC+5:30)
+INFO
+Environment update is starting.
+March 31, 2026 11:31:38 (UTC+5:30)
+INFO
+Successfully launched environment: MyApp1-env
+March 31, 2026 11:31:36 (UTC+5:30)
+INFO
+Application available at MyApp1-env.eba-zpys3fpc.us-east-1.elasticbeanstalk.com.
+March 31, 2026 11:31:32 (UTC+5:30)
+INFO
+Environment health has transitioned from Pending to Ok. Initialization completed 5 seconds ago and took 2 minutes.
+March 31, 2026 11:31:32 (UTC+5:30)
+INFO
+Added instance [i-0048957abadfcaf0a] to your environment.
+March 31, 2026 11:31:20 (UTC+5:30)
+INFO
+Instance deployment completed successfully.
+March 31, 2026 11:31:14 (UTC+5:30)
+INFO
+Instance deployment used the commands in your 'Procfile' to initiate startup of your application.
+March 31, 2026 11:31:14 (UTC+5:30)
+INFO
+Instance deployment successfully built your application using commands in the 'Buildfile'.
+March 31, 2026 11:30:43 (UTC+5:30)
+INFO
+Waiting for EC2 instances to launch. This may take a few minutes.
+
+
+
+and it idsplayed environment update successfully completed
+sucessfully uploaded file my-web-app.war to s3, created application version and started deployment with new application version
+environment successfully launched
+but under health it displayed 
+degraded-1 health issue 
+it is the same .war file right
+i only updated .xml file
+
+Run again: Bash
+
+build is clean, as i ran this
+so now i clicked on upload and deploy and uploaded the .war file
+March 31, 2026 11:59:28 (UTC+5:30)
+INFO
+The environment was reverted to the previous configuration setting.
+March 31, 2026 11:59:12 (UTC+5:30)
+ERROR
+During an aborted deployment, some instances may have deployed the new application version. To ensure all instances are running the same version, re-deploy the appropriate application version.
+March 31, 2026 11:59:12 (UTC+5:30)
+ERROR
+Failed to deploy application.
+March 31, 2026 11:59:11 (UTC+5:30)
+ERROR
+Unsuccessful command execution on instance id(s) 'i-0048957abadfcaf0a'. Aborting the operation.
+March 31, 2026 11:59:11 (UTC+5:30)
+INFO
+Command execution completed on all instances. Summary: [Successful: 0, Failed: 1].
+March 31, 2026 11:59:11 (UTC+5:30)
+ERROR
+[Instance: i-0048957abadfcaf0a] Command failed on instance. Return code: 1 Output: Engine execution has encountered an error..
+March 31, 2026 11:59:08 (UTC+5:30)
+ERROR
+Instance deployment failed. For details, see 'eb-engine.log'.
+March 31, 2026 11:59:05 (UTC+5:30)
+INFO
+Deploying new version to instance(s).
+March 31, 2026 11:58:46 (UTC+5:30)
+INFO
+Updating environment MyApp1-env's configuration settings.
+March 31, 2026 11:58:38 (UTC+5:30)
+INFO
+Environment update is starting.
+March 31, 2026 12:02:09 (UTC+5:30)
+ERROR
+During an aborted deployment, some instances may have deployed the new application version. To ensure all instances are running the same version, re-deploy the appropriate application version.
+March 31, 2026 12:02:08 (UTC+5:30)
+ERROR
+Failed to deploy application.
+March 31, 2026 12:02:08 (UTC+5:30)
+ERROR
+Unsuccessful command execution on instance id(s) 'i-0048957abadfcaf0a'. Aborting the operation.
+March 31, 2026 12:02:08 (UTC+5:30)
+INFO
+Command execution completed on all instances. Summary: [Successful: 0, Failed: 1].
+March 31, 2026 12:02:08 (UTC+5:30)
+ERROR
+[Instance: i-0048957abadfcaf0a] Command failed on instance. Return code: 1 Output: Engine execution has encountered an error..
+March 31, 2026 12:02:05 (UTC+5:30)
+ERROR
+Instance deployment failed. For details, see 'eb-engine.log'.
+March 31, 2026 12:02:02 (UTC+5:30)
+INFO
+Deploying new version to instance(s).
+March 31, 2026 12:01:42 (UTC+5:30)
+INFO
+Updating environment MyApp1-env's configuration settings.
+March 31, 2026 12:01:34 (UTC+5:30)
+INFO
+Environment update is starting.
+
+
+
+dude what exactly is going wrong every time
+
+pom.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.vijju</groupId>
+  <artifactId>my-web-app</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>my-web-app Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+	<groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <dependency>
+    <groupId>jakarta.servlet</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>5.0.0</version>
+    <scope>provided</scope>
+</dependency>
+
+  <build>
+    <finalName>my-web-app</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
+
+
+is this fine?
+build is success but
+Time
+	
+Type
+	
+Details
+
+March 31, 2026 12:07:06 (UTC+5:30)
+ERROR
+During an aborted deployment, some instances may have deployed the new application version. To ensure all instances are running the same version, re-deploy the appropriate application version.
+March 31, 2026 12:07:05 (UTC+5:30)
+ERROR
+Failed to deploy application.
+March 31, 2026 12:07:05 (UTC+5:30)
+ERROR
+Unsuccessful command execution on instance id(s) 'i-0048957abadfcaf0a'. Aborting the operation.
+March 31, 2026 12:07:05 (UTC+5:30)
+INFO
+Command execution completed on all instances. Summary: [Successful: 0, Failed: 1].
+March 31, 2026 12:07:05 (UTC+5:30)
+ERROR
+[Instance: i-0048957abadfcaf0a] Command failed on instance. Return code: 1 Output: Engine execution has encountered an error..
+March 31, 2026 12:07:02 (UTC+5:30)
+ERROR
+Instance deployment failed. For details, see 'eb-engine.log'.
+March 31, 2026 12:06:59 (UTC+5:30)
+INFO
+Deploying new version to instance(s).
+March 31, 2026 12:06:40 (UTC+5:30)
+INFO
+Updating environment MyApp1-env's configuration settings.
+March 31, 2026 12:06:32 (UTC+5:30)
+INFO
+Environment update is starting.
+
+logs
+
+----------------------------------------
+/var/log/eb-engine.log
+----------------------------------------
+2026/03/31 06:32:05.654129 [INFO] app source bundle is zip file ...
+2026/03/31 06:32:05.654132 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/
+2026/03/31 06:32:05.654141 [INFO] Running command: /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /var/app/staging/
+2026/03/31 06:32:05.657178 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/ successfully
+2026/03/31 06:32:05.657821 [INFO] Executing instruction: RunAppDeployPreBuildHooks
+2026/03/31 06:32:05.657842 [INFO] Running command: uname -m
+2026/03/31 06:32:05.659569 [INFO] x86_64
+
+2026/03/31 06:32:05.659589 [INFO] No hooks found in .platform/hooks/prebuild/, skipping
+2026/03/31 06:32:05.659593 [INFO] Executing instruction: Java Specific Build Application
+2026/03/31 06:32:05.659600 [INFO] no buildfile found, skip building java application
+2026/03/31 06:32:05.659605 [INFO] old env file for build tasks does not exist
+2026/03/31 06:32:05.659607 [INFO] Executing instruction: CheckProcfileForJavaApplication
+2026/03/31 06:32:05.659653 [ERROR] An error occurred during execution of command [app-deploy] - [CheckProcfileForJavaApplication]. Stop running the command. Error: there is no Procfile and no .jar file at root level of your source bundle 
+
+2026/03/31 06:32:05.659657 [INFO] Executing cleanup logic
+2026/03/31 06:32:05.659729 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[{"msg":"Instance deployment failed. For details, see 'eb-engine.log'.","timestamp":1774938725659,"severity":"ERROR"}]}]}
+
+2026/03/31 06:32:05.696118 [INFO] Platform Engine finished execution on command: app-deploy
+
+2026/03/31 06:37:01.015907 [INFO] Starting...
+2026/03/31 06:37:01.015960 [INFO] Starting EBPlatform-PlatformEngine
+2026/03/31 06:37:01.015986 [INFO] reading event message file
+2026/03/31 06:37:01.016368 [INFO] Engine received EB command cfn-hup-exec
+
+2026/03/31 06:37:01.107102 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:981892248556:stack/awseb-e-izz23qpfys-stack/d64ca510-2cc6-11f1-a1de-0e2ee3f302d7 -r AWSEBAutoScalingGroup --region us-east-1
+2026/03/31 06:37:01.456192 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:981892248556:stack/awseb-e-izz23qpfys-stack/d64ca510-2cc6-11f1-a1de-0e2ee3f302d7 -r AWSEBBeanstalkMetadata --region us-east-1
+2026/03/31 06:37:01.853867 [INFO] checking whether command app-deploy is applicable to this instance...
+2026/03/31 06:37:01.853908 [INFO] this command is applicable to the instance, thus instance should execute command
+2026/03/31 06:37:01.853921 [INFO] Setting up deployment log with request ID: 8534a987-870b-42ad-a331-680d69f1bb3d
+2026/03/31 06:37:01.917365 [INFO] Started S3 deployment log upload to s3://elasticbeanstalk-us-east-1-981892248556/resources/environments/logs/deployments/e-izz23qpfys/eb-deployment-8534a987-870b-42ad-a331-680d69f1bb3d.log
+2026/03/31 06:37:01.917456 [INFO] Engine command: (app-deploy)
+
+2026/03/31 06:37:01.917461 [INFO] Downloading EB Application...
+2026/03/31 06:37:01.917464 [INFO] Region: us-east-1
+2026/03/31 06:37:01.917467 [INFO] envID: e-izz23qpfys
+2026/03/31 06:37:01.917470 [INFO] envBucket: elasticbeanstalk-us-east-1-981892248556
+2026/03/31 06:37:01.917473 [INFO] accountID: 981892248556
+2026/03/31 06:37:01.917476 [INFO] Using manifest file name from command request
+2026/03/31 06:37:01.917494 [INFO] Manifest name is : manifest_1774938999818
+2026/03/31 06:37:01.917497 [INFO] Download app version manifest
+2026/03/31 06:37:01.917712 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-981892248556, object: resources/environments/e-izz23qpfys/_runtime/versions/manifest_1774938999818, expected bucket owner: 981892248556
+2026/03/31 06:37:02.198486 [INFO] Download successful125bytes downloaded
+2026/03/31 06:37:02.198671 [INFO] Trying to read and parse version manifest...
+2026/03/31 06:37:02.198749 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-981892248556, object: resources/environments/e-izz23qpfys/_runtime/_versions/MyApp1/MyApp1-version-4, expected bucket owner: 981892248556
+2026/03/31 06:37:02.225203 [INFO] Download successful1848bytes downloaded
+2026/03/31 06:37:02.225467 [INFO] Executing instruction: ElectLeader
+2026/03/31 06:37:02.225472 [INFO] Running leader election for instance i-0048957abadfcaf0a...
+2026/03/31 06:37:02.225475 [INFO] Calling the cfn-elect-cmd-leader to elect the command leader.
+2026/03/31 06:37:02.225484 [INFO] Running command: /opt/aws/bin/cfn-elect-cmd-leader --stack arn:aws:cloudformation:us-east-1:981892248556:stack/awseb-e-izz23qpfys-stack/d64ca510-2cc6-11f1-a1de-0e2ee3f302d7 --command-name ElasticBeanstalkCommand-AWSEBAutoScalingGroup --invocation-id 46a72272-4b2c-4aea-b384-40d2c334f90d --listener-id i-0048957abadfcaf0a --region us-east-1
+2026/03/31 06:37:02.548595 [INFO] Instance is Leader.
+2026/03/31 06:37:02.548638 [INFO] Executing instruction: stopSqsd
+2026/03/31 06:37:02.548642 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2026/03/31 06:37:02.548645 [INFO] Executing instruction: PreBuildEbExtension
+2026/03/31 06:37:02.548689 [INFO] Starting executing the config set Infra-EmbeddedPreBuild.
+2026/03/31 06:37:02.548703 [INFO] Running command: /opt/aws/bin/cfn-init -s arn:aws:cloudformation:us-east-1:981892248556:stack/awseb-e-izz23qpfys-stack/d64ca510-2cc6-11f1-a1de-0e2ee3f302d7 -r AWSEBAutoScalingGroup --region us-east-1 --configsets Infra-EmbeddedPreBuild
+2026/03/31 06:37:02.893544 [INFO] Finished executing the config set Infra-EmbeddedPreBuild.
+
+2026/03/31 06:37:02.893637 [INFO] Executing instruction: StageJavaApplication
+2026/03/31 06:37:02.893640 [INFO] Recreating /var/app/staging/
+2026/03/31 06:37:02.893973 [INFO] Running command: /usr/bin/file /opt/elasticbeanstalk/deployment/app_source_bundle
+2026/03/31 06:37:02.897006 [INFO] /opt/elasticbeanstalk/deployment/app_source_bundle: Zip archive data, at least v1.0 to extract
+
+2026/03/31 06:37:02.897170 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /tmp/extracted_app_source_bundle
+2026/03/31 06:37:02.897181 [INFO] Running command: /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /tmp/extracted_app_source_bundle
+2026/03/31 06:37:02.900319 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /tmp/extracted_app_source_bundle successfully
+2026/03/31 06:37:02.900489 [INFO] app source bundle is zip file ...
+2026/03/31 06:37:02.900494 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/
+2026/03/31 06:37:02.900507 [INFO] Running command: /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /var/app/staging/
+2026/03/31 06:37:02.903796 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/ successfully
+2026/03/31 06:37:02.904426 [INFO] Executing instruction: RunAppDeployPreBuildHooks
+2026/03/31 06:37:02.904447 [INFO] Running command: uname -m
+2026/03/31 06:37:02.906147 [INFO] x86_64
+
+2026/03/31 06:37:02.906167 [INFO] No hooks found in .platform/hooks/prebuild/, skipping
+2026/03/31 06:37:02.906171 [INFO] Executing instruction: Java Specific Build Application
+2026/03/31 06:37:02.906177 [INFO] no buildfile found, skip building java application
+2026/03/31 06:37:02.906182 [INFO] old env file for build tasks does not exist
+2026/03/31 06:37:02.906185 [INFO] Executing instruction: CheckProcfileForJavaApplication
+2026/03/31 06:37:02.906250 [ERROR] An error occurred during execution of command [app-deploy] - [CheckProcfileForJavaApplication]. Stop running the command. Error: there is no Procfile and no .jar file at root level of your source bundle 
+
+2026/03/31 06:37:02.906252 [INFO] Executing cleanup logic
+2026/03/31 06:37:02.906323 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[{"msg":"Instance deployment failed. For details, see 'eb-engine.log'.","timestamp":1774939022906,"severity":"ERROR"}]}]}
+
+2026/03/31 06:37:02.933574 [INFO] Platform Engine finished execution on command: app-deploy
+
+2026/03/31 06:38:25.098060 [INFO] Starting...
+2026/03/31 06:38:25.098108 [INFO] Starting EBPlatform-PlatformEngine
+2026/03/31 06:38:25.098139 [INFO] reading event message file
+2026/03/31 06:38:25.098518 [INFO] Engine received EB command cfn-hup-exec
+
+2026/03/31 06:38:25.201734 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:981892248556:stack/awseb-e-izz23qpfys-stack/d64ca510-2cc6-11f1-a1de-0e2ee3f302d7 -r AWSEBAutoScalingGroup --region us-east-1
+2026/03/31 06:38:25.504302 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:981892248556:stack/awseb-e-izz23qpfys-stack/d64ca510-2cc6-11f1-a1de-0e2ee3f302d7 -r AWSEBBeanstalkMetadata --region us-east-1
+2026/03/31 06:38:25.811722 [INFO] checking whether command tail-log is applicable to this instance...
+2026/03/31 06:38:25.811734 [INFO] this command is applicable to the instance, thus instance should execute command
+2026/03/31 06:38:25.811740 [INFO] Engine command: (tail-log)
+
+2026/03/31 06:38:25.811789 [INFO] Executing instruction: GetTailLogs
+2026/03/31 06:38:25.811792 [INFO] Tail Logs...
+2026/03/31 06:38:25.812166 [INFO] Running command: tail -n 100 /var/log/eb-engine.log
+
+
+----------------------------------------
+/var/log/nginx/access.log
+----------------------------------------
+157.35.71.122 - - [31/Mar/2026:06:02:50 +0000] "GET / HTTP/1.1" 200 17091 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" "-"
+157.35.71.122 - - [31/Mar/2026:06:02:51 +0000] "GET /favicon.ico HTTP/1.1" 200 17091 "http://myapp1-env.eba-zpys3fpc.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" "-"
+157.35.71.122 - - [31/Mar/2026:06:04:25 +0000] "GET / HTTP/1.1" 200 17091 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" "-"
+157.35.71.122 - - [31/Mar/2026:06:04:26 +0000] "GET /favicon.ico HTTP/1.1" 200 17091 "http://myapp1-env.eba-zpys3fpc.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" "-"
+43.130.78.203 - - [31/Mar/2026:06:12:57 +0000] "GET / HTTP/1.1" 200 17091 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1" "-"
+204.76.203.206 - - [31/Mar/2026:06:21:48 +0000] "GET / HTTP/1.1" 200 17091 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46" "-"
+
+
+----------------------------------------
+/var/log/nginx/error.log
+----------------------------------------
+2026/03/31 06:01:20 [warn] 2280#2280: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/03/31 06:01:20 [warn] 2313#2313: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/03/31 06:01:20 [warn] 2314#2314: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+
+
+----------------------------------------
+/var/log/web.stdout.log
+----------------------------------------
+Mar 31 06:01:18 ip-172-31-47-131 web[2255]: 2026-03-31 06:01:18.445:INFO::main: Logging initialized @129ms to org.eclipse.jetty.util.log.StdErrLog
+Mar 31 06:01:18 ip-172-31-47-131 web[2255]: 2026-03-31 06:01:18.541:INFO:oejs.Server:main: jetty-9.4.52.v20230823; built: 2023-08-23T19:29:37.669Z; git: abdcda73818a1a2c705da276edb0bf6581e7997e; jvm 25.0.2+10-LTS
+Mar 31 06:01:18 ip-172-31-47-131 web[2255]: 2026-03-31 06:01:18.600:INFO:oejs.AbstractConnector:main: Started ServerConnector@4361bd48{HTTP/1.1, (http/1.1)}{0.0.0.0:5000}
+Mar 31 06:01:18 ip-172-31-47-131 web[2255]: 2026-03-31 06:01:18.600:INFO:oejs.Server:main: Started @298ms
+
+
+Configuration
+
+under configuration i have, when i clicked
+service access, networking and database, instance traffic and scaling, updates, monitoring and logging
+health displayed ok with no errors
+so wait
+its been a while
+a few days later now im back and looking back to this project
+so i have opened elastic beanstalk
+and for my exam today
+i will start the aws, open elastic beanstalk, and open git
+how do i get my .war or .jar file
+i completely forgot the process i once did
+
+pom.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.vijju</groupId>
+  <artifactId>my-maven-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>my-maven-project</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.11.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Optionally: parameterized tests support -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.4.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.12.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.6.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
+
+👉 Use your web project (like before) ### Steps: 1. Open project with: XML
+
+how do i change it to war
+give me code to it what i have to add in pom.xml
